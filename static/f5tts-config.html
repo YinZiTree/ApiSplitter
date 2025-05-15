@@ -1,0 +1,223 @@
+<div class="page-container">
+  <div class="page-header">
+    <h2><i class="fas fa-volume-up"></i> F5TTS 语音合成配置</h2>
+    <p>将您的文字转化为自然流畅的语音，打造有声小说</p>
+  </div>
+
+  <div class="tts-container">
+    <div class="tts-sidebar">
+      <div class="sidebar-section">
+        <h3>声音库</h3>
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="搜索声音...">
+        </div>
+        
+        <div class="voice-filters">
+          <button class="filter-button active">全部</button>
+          <button class="filter-button">男声</button>
+          <button class="filter-button">女声</button>
+          <button class="filter-button">中文</button>
+          <button class="filter-button">英文</button>
+        </div>
+        
+        <div class="voice-list">
+          <div class="voice-item active">
+            <div class="voice-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="voice-info">
+              <div class="voice-name">陈雪 <span class="voice-tag">中文女声</span></div>
+              <div class="voice-desc">温柔自然的女声，适合言情小说</div>
+            </div>
+            <button class="voice-play">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+          
+          <div class="voice-item">
+            <div class="voice-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="voice-info">
+              <div class="voice-name">李明 <span class="voice-tag">中文男声</span></div>
+              <div class="voice-desc">沉稳有力的男声，适合冒险小说</div>
+            </div>
+            <button class="voice-play">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+          
+          <div class="voice-item">
+            <div class="voice-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="voice-info">
+              <div class="voice-name">王芳 <span class="voice-tag">中文女声</span></div>
+              <div class="voice-desc">活泼明快的女声，适合青春小说</div>
+            </div>
+            <button class="voice-play">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+          
+          <div class="voice-item">
+            <div class="voice-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="voice-info">
+              <div class="voice-name">James <span class="voice-tag">英文男声</span></div>
+              <div class="voice-desc">标准英式发音，适合外国角色</div>
+            </div>
+            <button class="voice-play">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+          
+          <div class="voice-item">
+            <div class="voice-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="voice-info">
+              <div class="voice-name">Sarah <span class="voice-tag">英文女声</span></div>
+              <div class="voice-desc">清晰自然的美式发音，情感丰富</div>
+            </div>
+            <button class="voice-play">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="tts-main">
+      <div class="tts-section">
+        <div class="section-header">
+          <h3>服务器配置</h3>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group half">
+            <label>IP地址</label>
+            <input type="text" id="tts-ip-input" value="127.0.0.1" class="form-control">
+          </div>
+          <div class="form-group half">
+            <label>端口</label>
+            <input type="text" id="tts-port-input" value="7860" class="form-control">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <button class="secondary-button" id="tts-connect-btn">
+            <i class="fas fa-link"></i> 连接服务器
+          </button>
+          <div id="tts-connection-status" class="connection-status">未连接</div>
+        </div>
+      </div>
+      
+      <div class="tts-section">
+        <div class="section-header">
+          <h3>文本转语音</h3>
+        </div>
+        
+        <div class="form-group">
+          <label>TTS模型</label>
+          <select id="tts-model-select">
+            <option value="F5-TTS-V1">F5-TTS-V1</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>音色模型列表</label>
+          <select id="voices-model-select" class="voices-model-select" disabled>
+            <option>无</option>
+          </select>
+          <div id="voices-model-prompt" class="prompt-message">
+            <i class="fas fa-info-circle"></i> 请先连接服务器
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label>参考音频文本</label>
+          <textarea id="ref-text-input" placeholder="参考音频的转录文本将显示在这里" class="form-control"></textarea>
+        </div> -->
+        
+        <div class="form-row">
+          <div class="form-group half">
+            <label>迭代步数(nfe_step)默认32</label>
+            <div class="range-slider">
+              <input type="range" id="nfe-step-slider" min="1" max="100" step="1" value="32">
+              <div class="range-value">
+                <input type="number" id="nfe-step-input" min="1" max="100" value="32">
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="primary-button" id="save-preset-btn">
+            <i class="fas fa-save"></i> 保存预设
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="tts-preview">
+      <div class="preview-header">
+        <h3>语音预览</h3>
+        <div class="preview-actions">
+          <button class="icon-button">
+            <i class="fas fa-download"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="audio-player">
+        <div class="player-visualization">
+          <div class="waveform">
+            <div class="waveform-placeholder"></div>
+          </div>
+        </div>
+        
+        <div class="player-controls">
+          <button class="control-button">
+            <i class="fas fa-step-backward"></i>
+          </button>
+          <button class="control-button play">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="control-button">
+            <i class="fas fa-step-forward"></i>
+          </button>
+        </div>
+        
+        <div class="player-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+          <div class="progress-time">
+            <span>00:00</span>
+            <span>00:00</span>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+  
+  <head>
+    <link rel="stylesheet" href="./css/f5tts-config.css">
+  </head>
+  
+  <!-- 引入f5tts-config.js -->
+  <script type="module" src="./js/f5tts-config.js"></script>
+  
+  <!-- 初始化TTS -->
+  <script type="module">
+    import { initializeTTS } from './js/f5tts-config.js';
+    initializeTTS();
+  </script>
+</body>
+
+

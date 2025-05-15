@@ -1,0 +1,13 @@
+Flask==3.1.0
+Flask-CORS==5.0.1
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.0.40
+psycopg2-binary==2.9.10
+Gunicorn==23.0.0
+requests==2.32.3
+urllib3==2.4.0
+email-validator==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.2
+greenlet==3.2.0
+typing-extensions==4.13.2

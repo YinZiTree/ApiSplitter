@@ -1,0 +1,33 @@
+/* 音频容器样式 */
+.audio-container {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+/* 音频播放器样式 */
+.audio-container audio {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* 生成音频按钮样式 */
+/* .generate-audio {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.generate-audio:hover {
+    background-color: #218838;
+}
+
+.generate-audio:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+} */

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小说项目目录</title>
+    <link rel="stylesheet" href="css/novel-directory.css">
+    <script type="module">
+        import { initializeNovelDirectory } from './js/novel-directory.js'
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeNovelDirectory();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-container">
+      <div class="page-header">
+        <h2><i class="fas fa-books"></i> 小说项目目录</h2>
+        <p>管理您的所有小说项目，查看创作进度和统计数据</p>
+      </div>
+    
+      <div class="action-bar">
+        <button class="primary-button" id="create-project-btn">
+          <i class="fas fa-plus"></i> 新建项目
+        </button>
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="搜索项目...">
+        </div>
+        <div class="filter-dropdown">
+          <button class="secondary-button">
+            <i class="fas fa-filter"></i> 筛选
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    
+      <div class="stats-cards">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-book"></i></div>
+          <div class="stat-content">
+            <h3>8</h3>
+            <p>进行中的项目</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="stat-content">
+            <h3>12</h3>
+            <p>已完成的项目</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-pencil-alt"></i></div>
+          <div class="stat-content">
+            <h3>256,789</h3>
+            <p>总字数</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-clock"></i></div>
+          <div class="stat-content">
+            <h3>128</h3>
+            <p>创作小时数</p>
+          </div>
+        </div>
+      </div>
+    
+      <div class="section-header">
+        <h3>进行中的项目</h3>
+        <button class="text-button">查看全部</button>
+      </div>
+    
+      <div class="project-cards" id="ongoing-projects">
+        <!-- 进行中的项目将在此动态加载 -->
+      </div>
+    
+      <div class="section-header">
+        <h3>最近完成的项目</h3>
+        <button class="text-button">查看全部</button>
+      </div>
+    
+      <div class="project-cards">
+        <div class="project-card completed">
+          <div class="project-header">
+            <div class="project-title">心灵迷宫</div>
+            <div class="project-menu"><i class="fas fa-ellipsis-h"></i></div>
+          </div>
+          <div class="project-genre">心理 / 悬疑</div>
+          <div class="project-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 100%"></div>
+            </div>
+            <div class="progress-text">已完成</div>
+          </div>
+          <div class="project-stats">
+            <div class="project-stat">
+              <i class="fas fa-file-alt"></i> 120 段落
+            </div>
+            <div class="project-stat">
+              <i class="fas fa-pencil-alt"></i> 68,450 字
+            </div>
+          </div>
+          <div class="project-updated">完成于: 上周</div>
+        </div>
+    
+        <div class="project-card completed">
+          <div class="project-header">
+            <div class="project-title">春风十里</div>
+            <div class="project-menu"><i class="fas fa-ellipsis-h"></i></div>
+          </div>
+          <div class="project-genre">言情 / 都市</div>
+          <div class="project-progress">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 100%"></div>
+            </div>
+            <div class="progress-text">已完成</div>
+          </div>
+          <div class="project-stats">
+            <div class="project-stat">
+              <i class="fas fa-file-alt"></i> 32 章节
+            </div>
+            <div class="project-stat">
+              <i class="fas fa-pencil-alt"></i> 78,320 字
+            </div>
+          </div>
+          <div class="project-updated">完成于: 2周前</div>
+        </div>
+      </div>
+    </div>
+</html>

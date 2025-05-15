@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小说创作</title>
+    <!-- 引入CSS文件 -->
+    <link rel="stylesheet" href="./css/novel-creation.css">
+    <!-- 在head部分添加 -->
+    <link rel="stylesheet" href="./css/novel-creation-mp3.css">
+    <!-- 添加视频合成样式 -->
+    <link rel="stylesheet" href="./css/novel-creation-img2video.css">
+    <!-- 添加图片增强样式 -->
+    <link rel="stylesheet" href="./css/novel-creation-image-enhancements.css">
+    <!-- 添加音频显示样式 -->
+    <link rel="stylesheet" href="./css/novel-creation-audio-display.css">
+    <!-- 添加Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="page-container">
+      <div class="page-header">
+        <h2><i class="fas fa-edit"></i> 小说创作</h2>
+        <p>使用先进的AI辅助工具，轻松进行小说创作</p>
+      </div>
+
+      <div class="novel-creation-container">
+        <div class="editor-sidebar">
+          <div class="sidebar-section">
+            <h3>项目文本</h3>
+            <div class="search-box">
+              <input type="text" class="chapter-param-input" placeholder="输入文本参数...">
+            </div>
+            <div class="action-buttons">
+              <button class="action-button">
+                本地生成分镜
+              </button>
+              <button class="action-button">
+                AI生成分镜
+              </button>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+              <h3>视频预览</h3>
+              <div class="video-container">
+                <video controls class="video-player">
+                  <source src="" type="video/mp4">
+                  您的浏览器不支持视频播放
+                </video>
+                <div class="video-controls">
+                  <button class="control-button" onclick="playVideo()">
+                    <i class="fas fa-play"></i> 播放
+                  </button>
+                  <button class="control-button" onclick="pauseVideo()">
+                    <i class="fas fa-pause"></i> 暂停
+                  </button>
+                  <button class="control-button" onclick="reloadVideo()">
+                    <i class="fas fa-sync-alt"></i> 重播
+                  </button>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <div class="editor-main">
+          <div class="ai-assistant-container">
+            <div class="assistant-header">
+              <h3>AI推文助手</h3>
+              <div class="assistant-actions">
+                <button class="assistant-action">
+                  <i class="fas fa-lightbulb"></i> 批量生图
+                </button>
+                <button class="assistant-action">
+                  <i class="fas fa-magic"></i> 批量配音
+                </button>
+                <button class="assistant-action">
+                  <i class="fas fa-theater-masks"></i> 合成视频
+                </button>
+                <button class="assistant-action">
+                  <i class="fas fa-project-diagram"></i> 输出剪映草稿
+                </button>
+              </div>
+            </div>
+            <div class="storyboard-container">
+              <div class="storyboard-header">
+                <div class="storyboard-column">Text</div>
+                <div class="storyboard-column">Content</div>
+                <div class="storyboard-column">Prompt</div>
+                <div class="storyboard-column">图片</div>
+                <div class="storyboard-column">操作</div>
+                <div class="storyboard-column">音频</div>
+              </div>
+              <div class="storyboard-content">
+                <!-- 动态生成的分镜项将插入到这里 -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 引入JS文件 -->
+    <script type="module" src="./js/novel-creation.js"></script>
+    <script type="module" src="./js/novel-creation-img.js"></script>
+    <script type="module" src="./js/novel-creation-imgs.js"></script>
+    <script type="module" src="./js/novel-creation-mp3.js"></script>
+    <script type="module" src="./js/novel-creation-img2video.js"></script>
+    <script type="module" src="./js/novel-creation-2mp4.js"></script>
+    <script type="module" src="./js/novel-creation-image-enhancements.js"></script>
+    <script type="module" src="./js/novel-creation-audio-display.js"></script>
+</body>
+</html>

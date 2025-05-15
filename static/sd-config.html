@@ -1,0 +1,222 @@
+<div class="page-container">
+  <div class="page-header">
+    <h2><i class="fas fa-image"></i> Stable Diffusion 参数配置</h2>
+    <p>配置AI图像生成参数，为您的小说创建精美插图</p>
+  </div>
+
+  <div class="config-container">
+    <div class="config-sidebar">
+      <div class="sidebar-section">
+        <h3>预设模板</h3>
+        <div class="preset-list">
+          <div class="preset-item active">
+            <div class="preset-icon"><i class="fas fa-magic"></i></div>
+            <div class="preset-info">
+              <div class="preset-name">小说封面</div>
+              <div class="preset-desc">适合创建小说封面的高质量图像</div>
+            </div>
+          </div>
+          <div class="preset-item">
+            <div class="preset-icon"><i class="fas fa-user"></i></div>
+            <div class="preset-info">
+              <div class="preset-name">角色肖像</div>
+              <div class="preset-desc">生成小说角色的精细肖像</div>
+            </div>
+          </div>
+          <div class="preset-item">
+            <div class="preset-icon"><i class="fas fa-mountain"></i></div>
+            <div class="preset-info">
+              <div class="preset-name">场景插图</div>
+              <div class="preset-desc">创建小说场景的详细插图</div>
+            </div>
+          </div>
+          <div class="preset-item">
+            <div class="preset-icon"><i class="fas fa-bolt"></i></div>
+            <div class="preset-info">
+              <div class="preset-name">动作场景</div>
+              <div class="preset-desc">生成充满动感的战斗或动作场景</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>历史记录</h3>
+        <div class="history-list">
+          <div class="history-item">
+            <div class="history-image" style="background-color: #ddd;"></div>
+            <div class="history-info">
+              <div class="history-name">星际飞船控制室</div>
+              <div class="history-time">今天 14:32</div>
+            </div>
+          </div>
+          <div class="history-item">
+            <div class="history-image" style="background-color: #ddd;"></div>
+            <div class="history-info">
+              <div class="history-name">亚历克斯肖像</div>
+              <div class="history-time">今天 11:15</div>
+            </div>
+          </div>
+          <div class="history-item">
+            <div class="history-image" style="background-color: #ddd;"></div>
+            <div class="history-info">
+              <div class="history-name">外星森林场景</div>
+              <div class="history-time">昨天 16:48</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="config-main">
+      <div class="config-section">
+        <div class="section-header">
+          <h3>基本设置</h3>
+          <button class="text-button">重置</button>
+        </div>
+        
+        <div class="form-group">
+          <label>服务器连接</label>
+          <div class="form-row">
+            <div class="form-group half">
+              <label>IP地址</label>
+              <input type="text" id="sd-ip-input" value="127.0.0.1" class="form-control">
+            </div>
+            <div class="form-group half">
+              <label>端口</label>
+              <input type="text" id="sd-port-input" value="7861" class="form-control">
+            </div>
+          </div>
+          <button class="secondary-button" id="sd-connect-btn">
+            <i class="fas fa-link"></i> 连接服务器
+          </button>
+          <div id="sd-connection-status" class="connection-status">未连接</div>
+        </div>
+        
+        <div class="form-row">
+          <!-- 宽度输入框 -->
+          <div class="form-group half">
+            <label>宽度</label>
+            <div class="input-with-buttons">
+              <button class="input-button">-</button>
+              <input type="number" aria-label="宽度" value="512">
+              <button class="input-button">+</button>
+            </div>
+          </div>
+          
+          <!-- 高度输入框 -->
+          <div class="form-group half">
+            <label>高度</label>
+            <div class="input-with-buttons">
+              <button class="input-button">-</button>
+              <input type="number" aria-label="高度" value="512">
+              <button class="input-button">+</button>
+            </div>
+          </div>
+          
+          <!-- 生成数量输入框 -->
+          <div class="form-group half">
+            <label>生成数量</label>
+            <div class="input-with-buttons">
+              <button class="input-button">-</button>
+              <input type="number" aria-label="生成数量" value="2">
+              <button class="input-button">+</button>
+            </div>
+          </div>
+          
+          <!-- 随机种子输入框 -->
+          <div class="form-group half">
+            <label>随机种子</label>
+            <div class="input-with-buttons seed">
+              <input type="number" aria-label="随机种子" value="-1">
+              <button class="input-button"><i class="fas fa-dice"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="config-section">
+        <div class="section-header">
+          <h3>高级设置</h3>
+          <button class="toggle-button">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+        
+        <div class="advanced-settings">
+          <div class="form-group">
+            <label>采样方法</label>
+            <select aria-label="采样方法">
+              <!-- 选项将由JavaScript动态生成 -->
+            </select>
+            <div id="sampler-notice" class="notice-text" style="display: none;">请先连接服务器</div>
+          </div>
+          
+          <div class="form-group">
+            <label>采样步数</label>
+            <div class="range-with-input">
+              <div class="range-slider">
+                <input type="range" id="sampling-steps-range" min="1" max="150" value="30" step="1">
+              </div>
+              <input type="number" id="sampling-steps-input" value="20" min="1" max="150" step="1" class="number-input">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label>提示词引导系数 (CFG Scale)</label>
+            <div class="range-with-input">
+              <div class="range-slider">
+                <input type="range" id="cfg-scale-range" min="1" max="30" value="7" step="0.5">
+              </div>
+              <input type="number" id="cfg-scale-input" value="7.5" min="1" max="30" step="0.5" class="number-input">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group half">
+              <label>模型</label>
+              <select id="sd-model-select">
+                <!-- 选项将由JavaScript动态生成 -->
+              </select>
+              <div id="model-notice" class="notice-text" style="display: none;">请先连接服务器</div>
+            </div>
+            <div class="form-group half">
+              <label>LoRA</label>
+              <select id="sd-lora-select">
+                <!-- 选项将由JavaScript动态生成 -->
+              </select>
+              <div id="lora-notice" class="notice-text" style="display: none;">请先连接服务器</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="action-buttons">
+        <button class="secondary-button" id="save-preset-btn">
+          <i class="fas fa-save"></i> 保存预设
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sd参数配置</title>
+  <link rel="stylesheet" href="/static/css/sd-config.CSS">
+  <script type="module" src="/static/js/sd-config.js"></script>
+</head>
+<body>
+  <!-- 页面内容保持不变 -->
+</body>
+<script type="module">
+  import { initializeSDConfig } from '/static/js/sd-config.JS';
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeSDConfig();
+  });
+</script>
+</html>

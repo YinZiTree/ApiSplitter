@@ -1,0 +1,549 @@
+<div class="page-container">
+  <div class="page-header">
+    <h2><i class="fas fa-robot"></i> 阿里云百炼参数配置</h2>
+    <p>利用阿里云百炼大模型,增强您的创作能力</p>
+  </div>
+
+  <div class="bailian-container">
+    <div class="bailian-sidebar">
+      <div class="sidebar-section">
+        <h3>功能选择</h3>
+        <div class="function-list">
+          <div class="function-item active">
+            <div class="function-icon"><i class="fas fa-pen-fancy"></i></div>
+            <div class="function-info">
+              <div class="function-name">创意助手</div>
+              <div class="function-desc">提供创意灵感和故事构思</div>
+            </div>
+          </div>
+          
+          <div class="function-item">
+            <div class="function-icon"><i class="fas fa-users"></i></div>
+            <div class="function-info">
+              <div class="function-name">角色塑造</div>
+              <div class="function-desc">帮助创建丰满立体的角色</div>
+            </div>
+          </div>
+          
+          <div class="function-item">
+            <div class="function-icon"><i class="fas fa-map"></i></div>
+            <div class="function-info">
+              <div class="function-name">世界观构建</div>
+              <div class="function-desc">设计小说世界的规则与背景</div>
+            </div>
+          </div>
+          
+          <div class="function-item">
+            <div class="function-icon"><i class="fas fa-route"></i></div>
+            <div class="function-info">
+              <div class="function-name">情节规划</div>
+              <div class="function-desc">规划故事情节与转折点</div>
+            </div>
+          </div>
+          
+          <div class="function-item">
+            <div class="function-icon"><i class="fas fa-edit"></i></div>
+            <div class="function-info">
+              <div class="function-name">文本润色</div>
+              <div class="function-desc">优化文字表达与描写</div>
+            </div>
+          </div>
+          
+          <div class="function-item">
+            <div class="function-icon"><i class="fas fa-search"></i></div>
+            <div class="function-info">
+              <div class="function-name">知识查询</div>
+              <div class="function-desc">查询专业领域知识</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="sidebar-section">
+        <h3>历史记录</h3>
+        <div class="history-list">
+          <div class="history-item">
+            <div class="history-icon"><i class="fas fa-pen-fancy"></i></div>
+            <div class="history-info">
+              <div class="history-name">未知星球设定</div>
+              <div class="history-time">今天 15:20</div>
+            </div>
+          </div>
+          
+          <div class="history-item">
+            <div class="history-icon"><i class="fas fa-users"></i></div>
+            <div class="history-info">
+              <div class="history-name">莉娜角色背景</div>
+              <div class="history-time">今天 12:45</div>
+            </div>
+          </div>
+          
+          <div class="history-item">
+            <div class="history-icon"><i class="fas fa-route"></i></div>
+            <div class="history-info">
+              <div class="history-name">第8章情节规划</div>
+              <div class="history-time">昨天 18:30</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bailian-main">
+      <div class="model-selection">
+        <div class="model-header">
+          <h3>模型选择</h3>
+          <div class="model-info">
+            <i class="fas fa-info-circle"></i>
+            <span>不同模型适用于不同创作场景,请根据需求选择</span>
+          </div>
+        </div>
+        
+        <div class="model-cards" id="model-cards-container">
+          <!-- 模型卡片将通过JavaScript动态生成 -->
+          <div class="loading-models">
+            <div class="loading-spinner"></div>
+            <p>正在加载模型列表...</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="prompt-section">
+        <div class="section-header">
+          <h3>创意助手</h3>
+          <button class="text-button">加载本地预设</button>
+        </div>
+        
+        <div class="form-group">
+          <label>系统提示词</label>
+          <textarea placeholder="设置AI助手的角色和行为方式...">角色
+你是 Noveltweets_auto_video，一位专业的小说推文分镜生成专家，擅长深刻理解小说内容并精准拆分视觉画面。你的核心任务是根据用户提供的小说内容，拆分出适合推文展示的分镜片段，并生成详细的英文提示词，指导 AI 创作符合小说氛围的视觉画面。
+
+前提           
+在生成分镜前，你需深入理解用户提供的 作品简介，掌握故事背景、设定、人物和氛围，作为分镜拆分的基础。   
+
+作品简介
+去小说界面复制进行替换！！！
+
+技能
+技能 1: 小说内容拆分与分镜提示词生成    
+理解小说内容：深入分析用户提供的小说片段或简介，捕捉场景、人物、动作和情绪细节。
+拆分视觉瞬间：将小说内容分解为适合推文的独立分镜，每个分镜聚焦单一视觉焦点，对应文本片段需简短明确。
+选择镜头类型：根据场景需求，选择恰当的镜头类型（如 Close, Medium, Wide, POV），增强画面叙事效果。
+生成结构化提示词：为每个分镜生成详细英文提示词，使用以下固定术语，确保 AI 生成精准画面： 
+Shot Type: 镜头类型（如 Close, Medium, Wide）。
+Subject: 画面主体（如 [Character Name], Object, Scene）。
+Action/Pose: 主体动作或状态（如 running, smiling）。
+Setting/Environment: 场景与时间（如 dark forest, night）。
+Lighting: 光线效果（如 soft light, moonlight）。
+Style: 艺术风格（如 realistic, anime）。
+Color: 色彩基调（如 cool tones, vivid reds）。
+Mood/Atmosphere: 情感氛围（如 tense, romantic）。
+Camera Angle: 拍摄角度（如 low angle, eye-level）。
+关联小说片段：确保每个分镜的提示词与对应的小说片段精准匹配，逻辑一致。
+迭代优化：若生成效果不佳，调整提示词细节（如补充环境描述）或术语组合，多次实验以优化结果。
+
+核心要点      
+清晰拆分：小说内容分解为独立、聚焦的视觉瞬间。
+结构化提示词：使用固定术语，按统一格式组织提示词，便于 AI 理解。
+精准对应：分镜提示词与小说片段一一对应，片段保持简短聚焦。
+持续优化：通过调整提示词细节或风格，迭代生成最佳画面。
+提示词格式示例: [Shot Type] of [Subject], [Action/Pose], in [Setting/Environment], [Lighting], [Style], [Color], [Mood/Atmosphere], [Camera Angle].           
+
+限制    
+仅处理用户提供的小说内容相关任务，拒绝回答无关话题。
+分镜逻辑需清晰，严格符合小说推文需求。        
+
+输出格式：
+{
+"data": [
+{
+"text": "小说片段",
+"content": "分镜描述",
+"prompt": "英文提示词"
+}
+]
+}</textarea>
+        </div>
+
+        <div class="form-group">
+          <label>API Key</label>
+          <input type="text" class="form-control" placeholder="请输入您的API Key">
+        </div>
+        
+        
+        <div class="action-buttons">
+          <button class="primary-button" id="send-prompt-btn">
+            <i class="fas fa-paper-plane"></i> 保存预设
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阿里云百炼参数配置</title>
+  <link rel="stylesheet" href="/static/css/bailian-config.css">
+  <!-- 其他head内容保持不变 -->
+</head>
+
+
+<!-- 注释掉无用的script逻辑代码 -->
+<!--
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 初始化百炼配置页面
+    initializeBailianConfig();
+  });
+
+  // 百炼配置页面初始化函数
+  function initializeBailianConfig() {
+    // 绑定功能项点击事件
+    const functionItems = document.querySelectorAll('.function-item');
+    functionItems.forEach(item => {
+      item.addEventListener('click', function() {
+        // 移除所有功能项的激活状态
+        functionItems.forEach(func => func.classList.remove('active'));
+        // 为当前点击的功能项添加激活状态
+        this.classList.add('active');
+        
+        // 根据选中的功能更新提示词
+        const functionName = this.querySelector('.function-name').textContent;
+        updatePromptTemplate(functionName);
+      });
+    });
+
+    // 绑定模型卡片点击事件
+    const modelCards = document.querySelectorAll('.model-card');
+    modelCards.forEach(card => {
+      card.addEventListener('click', function() {
+        // 移除所有模型卡片的激活状态
+        modelCards.forEach(model => model.classList.remove('active'));
+        // 为当前点击的模型卡片添加激活状态
+        this.classList.add('active');
+      });
+    });
+
+    // 绑定发送按钮点击事件
+    const sendButton = document.getElementById('send-prompt-btn');
+    if (sendButton) {
+      sendButton.addEventListener('click', sendPrompt);
+    }
+
+    // 绑定聊天输入框回车事件
+    const chatInput = document.querySelector('.chat-input textarea');
+    if (chatInput) {
+      chatInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendChatMessage();
+        }
+      });
+    }
+
+    // 绑定聊天发送按钮点击事件
+    const chatSendBtn = document.querySelector('.send-button');
+    if (chatSendBtn) {
+      chatSendBtn.addEventListener('click', sendChatMessage);
+    }
+
+    // 绑定历史记录项点击事件
+    const historyItems = document.querySelectorAll('.history-item');
+    historyItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const historyName = this.querySelector('.history-name').textContent;
+        loadHistoryChat(historyName);
+      });
+    });
+
+    // 绑定范围滑块的值改变事件
+    const rangeSliders = document.querySelectorAll('.range-slider input[type="range"]');
+    rangeSliders.forEach(slider => {
+      slider.addEventListener('input', function() {
+        // 更新显示的值
+        const valueDisplay = this.nextElementSibling;
+        valueDisplay.textContent = this.value;
+      });
+    });
+
+    // 绑定高级选项折叠按钮
+    const toggleButton = document.querySelector('.advanced-header .toggle-button');
+    if (toggleButton) {
+      toggleButton.addEventListener('click', function() {
+        const advancedContent = document.querySelector('.advanced-content');
+        if (advancedContent) {
+          // 切换高级选项的显示/隐藏状态
+          const isVisible = advancedContent.style.display !== 'none';
+          advancedContent.style.display = isVisible ? 'none' : 'block';
+          
+          // 更新按钮图标
+          const icon = this.querySelector('i');
+          if (icon) {
+            icon.className = isVisible ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+          }
+        }
+      });
+    }
+    
+    // 加载百炼模型列表
+    loadBailianModels();
+  }
+
+  // 加载百炼模型列表
+  function loadBailianModels() {
+    fetch('/api/bailian/models')
+      .then(response => response.json())
+      .then(result => {
+        if (result.status === 'success' && result.data && result.data.length > 0) {
+          // 更新模型列表
+          updateModelCards(result.data);
+        }
+      })
+      .catch(error => {
+        console.error('加载百炼模型列表时出错:', error);
+      });
+  }
+
+  // 更新模型卡片
+  function updateModelCards(models) {
+    // 实现更新模型卡片的逻辑
+    console.log('更新模型卡片:', models);
+  }
+
+  // 更新提示词模板
+  function updatePromptTemplate(functionName) {
+    let systemPrompt = '';
+    let userPrompt = '';
+    
+    // 根据功能选择设置不同的提示词模板
+    switch(functionName) {
+      case '创意助手':
+        systemPrompt = '你是一位经验丰富的科幻小说创作顾问,擅长构思未来科技、外星文明和宇宙探索相关的创意。请提供详细、具体、有创意的建议,并注重科学合理性。';
+        userPrompt = '我正在创作一部科幻小说,主角们发现了一颗蓝色行星,并检测到有生命迹象。请帮我构思这个星球上可能存在的独特生态系统和生命形式,以及它们如何适应这个星球的环境。需要既有科学合理性,又有创意性。';
+        break;
+      case '角色塑造':
+        systemPrompt = '你是一位角色塑造专家,擅长为小说创建立体、有深度的角色。请提供详细、有吸引力的角色设定,包括外貌、性格、背景故事、动机和内心冲突等方面。';
+        userPrompt = '我需要为科幻小说创建一位女性科学家角色,她是探索队的生物学专家。请帮我构思这个角色的详细设定,包括她的专业领域、性格特点、过去经历、动机和在故事中可能的成长弧线。';
+        break;
+      case '世界观构建':
+        systemPrompt = '你是一位世界观构建专家,擅长为小说创建完整、合理的世界背景和设定。请提供详细、有条理的世界观构建建议,包括历史、地理、文化、科技、政治等方面。';
+        userPrompt = '我正在创作一个未来世界,地球资源枯竭后人类开始向宇宙扩张的故事背景。请帮我构建这个世界的基本设定,包括人类文明的发展状况、行星间政治结构、主要派系冲突、科技水平和社会形态等方面。';
+        break;
+      // 其他功能...
+    }
+    
+    // 更新表单中的提示词
+    document.querySelector('textarea[placeholder*="设置AI助手的角色"]').value = systemPrompt;
+    document.querySelector('textarea[placeholder*="描述您的需求"]').value = userPrompt;
+  }
+
+  // 发送提示词
+  function sendPrompt() {
+    // 获取提示词和模型参数
+    const systemPrompt = document.querySelector('textarea[placeholder*="设置AI助手的角色"]').value;
+    const userPrompt = document.querySelector('textarea[placeholder*="描述您的需求"]').value;
+    const activeModel = document.querySelector('.model-card.active .model-name').textContent;
+    const temperature = document.querySelector('input[min="0"][max="1"][step="0.1"]').value;
+    
+    if (!userPrompt.trim()) {
+      alert('请输入用户提示词');
+      return;
+    }
+    
+    // 清空聊天区域并添加用户消息
+    const chatMessages = document.querySelector('.chat-messages');
+    chatMessages.innerHTML = `
+      <div class="message user">
+        <div class="message-avatar">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="message-content">
+          <div class="message-text">${userPrompt}</div>
+          <div class="message-time">${getCurrentTime()}</div>
+        </div>
+      </div>
+      <div class="message ai">
+        <div class="message-avatar">
+          <i class="fas fa-robot"></i>
+        </div>
+        <div class="message-content">
+          <div class="message-text">
+            <div class="loading">
+              <div class="loading-spinner"></div>
+              <p>正在思考...</p>
+            </div>
+          </div>
+          <div class="message-time">${getCurrentTime()}</div>
+        </div>
+      </div>
+    `;
+    
+    // 发送请求到百炼API
+    fetch('/api/bailian/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prompt: userPrompt,
+        system_prompt: systemPrompt,
+        model: activeModel,
+        temperature: parseFloat(temperature)
+      })
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (result.status === 'success') {
+        // 更新AI回复
+        const aiMessage = chatMessages.querySelector('.message.ai .message-text');
+        aiMessage.innerHTML = formatAIResponse(result.data.content);
+      } else {
+        throw new Error(result.message || '请求失败');
+      }
+    })
+    .catch(error => {
+      console.error('调用百炼API出错:', error);
+      const aiMessage = chatMessages.querySelector('.message.ai .message-text');
+      aiMessage.innerHTML = `
+        <div class="error-message">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>生成回复失败: ${error.message}</p>
+        </div>
+      `;
+    });
+  }
+
+  // 发送聊天消息
+  function sendChatMessage() {
+    const chatInput = document.querySelector('.chat-input textarea');
+    const message = chatInput.value.trim();
+    
+    if (!message) return;
+    
+    // 添加用户消息到聊天区域
+    const chatMessages = document.querySelector('.chat-messages');
+    const userMessageElement = document.createElement('div');
+    userMessageElement.className = 'message user';
+    userMessageElement.innerHTML = `
+      <div class="message-avatar">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="message-content">
+        <div class="message-text">${message}</div>
+        <div class="message-time">${getCurrentTime()}</div>
+      </div>
+    `;
+    chatMessages.appendChild(userMessageElement);
+    
+    // 添加AI响应占位
+    const aiMessageElement = document.createElement('div');
+    aiMessageElement.className = 'message ai';
+    aiMessageElement.innerHTML = `
+      <div class="message-avatar">
+        <i class="fas fa-robot"></i>
+      </div>
+      <div class="message-content">
+        <div class="message-text">
+          <div class="loading">
+            <div class="loading-spinner"></div>
+            <p>正在思考...</p>
+            </div>
+          </div>
+          <div class="message-time">${getCurrentTime()}</div>
+        </div>
+      </div>
+    `;
+    chatMessages.appendChild(aiMessageElement);
+    
+    // 清空输入框
+    chatInput.value = '';
+    
+    // 滚动到底部
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // 发送请求到百炼API,使用与当前主提示词相同的设置
+    const systemPrompt = document.querySelector('textarea[placeholder*="设置AI助手的角色"]').value;
+    const activeModel = document.querySelector('.model-card.active .model-name').textContent;
+    const temperature = document.querySelector('input[min="0"][max="1"][step="0.1"]').value;
+    
+    fetch('/api/bailian/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prompt: message,
+        system_prompt: systemPrompt,
+        model: activeModel,
+        temperature: parseFloat(temperature)
+      })
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (result.status === 'success') {
+        // 更新AI回复
+        const aiMessageText = aiMessageElement.querySelector('.message-text');
+        aiMessageText.innerHTML = formatAIResponse(result.data.content);
+        
+        // 滚动到底部
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      } else {
+        throw new Error(result.message || '请求失败');
+      }
+    })
+    .catch(error => {
+      console.error('发送聊天消息出错:', error);
+      const aiMessageText = aiMessageElement.querySelector('.message-text');
+      aiMessageText.innerHTML = `
+        <div class="error-message">
+          <i class="fas fa-exclamation-circle"></i>
+          <p>生成回复失败: ${error.message}</p>
+        </div>
+      `;
+    });
+  }
+
+  // 加载历史聊天记录
+  function loadHistoryChat(historyName) {
+    // 实现加载历史聊天记录的逻辑
+    console.log('加载历史聊天记录:', historyName);
+    
+    // 这里是模拟效果,实际应用中应该从后端获取历史记录
+    alert(`加载历史记录: ${historyName}`);
+  }
+
+  // 格式化AI响应,支持简单的Markdown语法
+  function formatAIResponse(text) {
+    // 处理标题
+    text = text.replace(/### (.*?)$/gm, '<h4>$1</h4>');
+    text = text.replace(/## (.*?)$/gm, '<h3>$1</h3>');
+    
+    // 处理强调
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    
+    // 处理段落
+    text = text.replace(/\n\n/g, '</p><p>');
+    
+    // 处理列表（简化版）
+    text = text.replace(/^\- (.*?)$/gm, '<li>$1</li>');
+    
+    // 包装在段落中
+    return '<p>' + text + '</p>';
+  }
+
+  // 获取当前时间
+  function getCurrentTime() {
+    const now = new Date();
+    return now.getHours().toString().padStart(2, '0') + ':' + 
+           now.getMinutes().toString().padStart(2, '0');
+  }
+</script>
+-->
+
+

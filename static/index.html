@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小说创作管理系统</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>小说创作管理系统</h1>
+    <p>一站式小说创作与AI辅助平台</p>
+  </div>
+
+  <div class="tab-navigation">
+    <button class="tab-button active" data-page="novel-directory">小说项目目录</button>
+    <button class="tab-button" data-page="novel-creation">小说创作界面</button>
+    <button class="tab-button" data-page="sd-config">SD参数配置</button>
+    <button class="tab-button" data-page="f5tts-config">F5TTS参数配置</button>
+    <button class="tab-button" data-page="bailian-config">阿里云百炼参数配置</button>
+  </div>
+
+  <!-- 页面容器 -->
+  <div id="novel-directory" class="page active">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+  
+  <div id="novel-creation" class="page">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+  
+  <div id="sd-config" class="page">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+  
+  <div id="f5tts-config" class="page">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+  
+  <div id="bailian-config" class="page">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+
+</body>
+</html>
